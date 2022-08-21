@@ -16,6 +16,7 @@ namespace OOP_case
         public void PrintDailyBalance(DateTime date)
         {
             BoxOffice.Balance.Where(x => x.Key.DayOfWeek.Equals(date.DayOfWeek)).Select(i => $"{i.Key}: {i.Value}").ToList().ForEach(Console.WriteLine);
+            Console.WriteLine("Daily Balance: " + BoxOffice.Balance.Sum(i => i.Value));
         }
     }
 }
